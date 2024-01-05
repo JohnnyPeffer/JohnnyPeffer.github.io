@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Código Base, html, css, javascript" />
+    <meta name="keywords" content="Código Base, html, css, javascript" />
+    <meta name="author" content="Johnny Peffer Oficial" />
+    <link rel="shortcut icon" type="image/x-icon" href="/imagens/favicon.ico" />
+    <link rel="stylesheet" href="/estilos/estilo.css" />
+    <title>Inicio - Super Mario World</title>
+  </head>
+  <body>
+    <button type="button" id="resetar" onclick="resetar()">Resetar</button>
+    <audio src="/audios/coin.wav" id="audio-moeda"></audio>
+    <div id="container">
+      <video src="/videos/theme.mp4" autoplay id="video-tema"></video>
+      <button type="button" id="botao-iniciar" disabled onclick="iniciar()">Pressione Enter</button>
+      <button type="button" id="botao-jogar1" onclick="iniciarJogoComMario()">1 Jogar com Mario</button>
+      <button type="button" id="botao-jogar2" onclick="iniciarJogoComLuigi()">2 Jogar com Luigi</button>
+    </div>
+    <script src="/javascripts/inicio.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Código Base, html, css, javascript" />
+    <meta name="keywords" content="Código Base, html, css, javascript" />
+    <meta name="author" content="Johnny Peffer Oficial" />
+    <link rel="shortcut icon" type="image/x-icon" href="/imagens/favicon.ico" />
+    <link rel="stylesheet" href="/estilos/bemvindo.css" />
+    <title>Bem vindo - Super Mario World</title>
+  </head>
+  <body>
+    <button type="button" id="resetar" onclick="resetar()">Resetar</button>
+    <audio src="/audios/coin.wav" id="audio-moeda"></audio>
+    <audio src="/audios/welcome.mp3" autoplay id="bemvindo"></audio>
+    <div id="container">
+        <img src="/imagens/welcomesmw.png" id="imagem-bv" alt="bem vindo">
+        <p id="texto">Bem-vindo! Esta e a Terra dos Dinossauros. Nesta terra estranha,
+            descobrimos que a Princesa Toadstool esta desaparecida novamente!
+            Parece que Bowser esta de volta!</p>
+      <button type="button" id="botao-iniciar" onclick="iniciar()">Pressione Enter</button>
+    </div>
+    <script src="/javascripts/bemvindo.js" defer></script>
+  </body>
+</html>

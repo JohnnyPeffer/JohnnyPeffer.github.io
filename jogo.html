@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Código Base, html, css, javascript" />
+    <meta name="keywords" content="Código Base, html, css, javascript" />
+    <meta name="author" content="Johnny Peffer Oficial" />
+    <link rel="shortcut icon" type="image/x-icon" href="/imagens/favicon.ico" />
+    <link rel="stylesheet" href="/estilos/jogo.css" />
+    <title>Jogo - Super Mario World</title>
+  </head>
+  <body>
+    <button type="button" id="resetar" onclick="resetar()">Resetar</button>
+    <button type="button" id="editar">Hack Editor</button>
+    <audio src="/audios/pause.wav" id="audio-pause"></audio>
+    <audio src="/audios/coin.wav" id="audio-moeda"></audio>
+    <audio src="/audios/jump.wav" id="audio-pulo"></audio>
+    <audio src="/audios/bump.wav" id="audio-efeito"></audio>
+    <audio src="/audios/hurryup.wav" id="audio-rapido"></audio>
+    <audio src="/audios/playerdown.mp3" id="audio-morreu"></audio>
+    <audio src="/audios/gameover.mp3" id="audio-game-over"></audio>
+    <audio src="/audios/courseclear.mp3" id="audio-missao-completa"></audio>
+    <audio src="/audios/fadeout.mp3" id="audio-efeito-final"></audio>
+    <audio src="/audios/yoshicoin.wav" id="audio-moeda-yoshi"></audio>
+    <audio src="/audios/overworld.mp3" autoplay loop id="audio-jogo-normal"></audio>
+    <audio src="/audios/overworldhurry.mp3" loop id="audio-jogo-rapido"></audio>
+      <div id="container">
+        <div id="ceu"></div>
+        <div id="cenario"></div>
+        <div id="painel-hack">
+          <button type="button" title="Fechar" id="hack-fechar">x</button>
+          <h2 id="texto-hack">Hack Editor</h2>
+          <div id="editor-hack">
+            <label for="hack-vidas">Vidas:</label>
+            <input type="text" id="hack-vidas" placeholder="Editar Vidas">
+            <label for="hack-tempo">Tempo:</label>
+            <input type="text" id="hack-tempo" placeholder="Editar Tempo">
+            <label for="hack-moedas">Moedas:</label>
+            <input type="text" id="hack-moedas" placeholder="Editar Moedas">
+            <label for="hack-pontos">Pontos:</label>
+            <input type="text" id="hack-pontos" placeholder="Editar Pontos">
+              <form id="selecionar">
+                <label for="hack-mario" id="jogador1"><input type="radio" id="hack-mario" name="jogador" value="opcao1" checked>Mario</label>
+                <label for="hack-luigi" id="jogador2"><input type="radio" id="hack-luigi" name="jogador" value="opcao2">Luigi</label>
+            </form>
+            <div id="invencibilidade">
+              <input type="checkbox" name="invencivel" id="invencivel">
+              <label for="invencivel">Invencibilidade</label>
+            </div>
+          <button type="button" id="hack-confirmar">Confirmar</button>
+          </div>
+        </div>
+        <div id="menu"></div>
+        <div id="vidas"></div>
+        <div id="bonus"></div>
+        <div id="tempo"></div>
+        <div id="moedas"></div>
+        <div id="pontos"></div>
+        <div id="fruta-roxa" style="bottom: 250px;"></div>
+        <div id="poste1"></div>
+        <div id="ponto"></div>
+        <div id="mario"></div>
+        <div id="poste2"></div>
+        <div id="missao-completa">
+          <img src="/imagens/curseclear.png" alt="missao completa" />
+          <img src="/imagens/curseclearbonus.png" alt="bonus missao" />
+          <div id="bonus-final">0</div>
+        </div>
+        <div id="aviso">
+          <p>Aviso: Atualizar a pagina ira perder o progresso do jogo!</p>
+          <button type="button" id="botao-confirmar">Confirmar</button>
+          <button type="button" id="botao-cancelar">Cancelar</button>
+        </div>
+      </div>
+      <div id="game"></div>
+      <div id="over"></div>
+    <script src="/javascripts/jogo.js" defer></script>
+  </body>
+</html>

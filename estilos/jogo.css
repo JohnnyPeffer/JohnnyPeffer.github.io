@@ -1,0 +1,641 @@
+@font-face {
+  font-family: "Super Mario World";
+  src: url(/fontes/SuperMarioWorld.ttf);
+}
+
+@keyframes pressioneEnter {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes animarBotoes {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(130px);
+  }
+}
+
+@keyframes pulo {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-100px);
+  }
+  20% {
+    transform: translateY(-120px);
+  }
+  30% {
+    transform: translateY(-130px);
+  }
+  40% {
+    transform: translateY(-130px);
+  }
+  50% {
+    transform: translateY(-140px);
+  }
+  60% {
+    transform: translateY(-150px);
+  }
+  70% {
+    transform: translateY(-150px);
+  }
+  80% {
+    transform: translateY(-150px);
+  }
+  90% {
+    transform: translateY(-150px);
+  }
+  95% {
+    transform: translateY(-120px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes invencivel {
+  from {
+    filter: brightness(100%);
+    opacity: 0.1;
+  }
+  to {
+    filter: brightness(200%);
+    opacity: 1;
+  }
+}
+
+@keyframes danoInvencivel {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(300px);
+  }
+}
+
+@keyframes gameOver {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-10px);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+  30% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(500px);
+  }
+}
+
+@keyframes pontoFinal {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-250px);
+  }
+}
+
+@keyframes game {
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes over {
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes editor {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes aviso {
+  from {
+    transform: translateY(-300px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes efeito {
+  100% {
+    filter: blur(15px);
+    background-color: black;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  font-family: "Super Mario World";
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: url(/imagens/mario-cursor.cur), auto;
+  overflow: hidden;
+}
+
+#container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#aviso {
+  position: absolute;
+  width: 350px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  transform: scale(0.1);
+  display: none;
+  z-index: 9999;
+  animation: aviso 1s;
+}
+
+#aviso button {
+  margin: 15px;
+  padding: 10px;
+  cursor: url(/imagens/mario-cursor-link.cur), auto;
+  border-radius: 5px;
+}
+
+#aviso #botao-confirmar {
+  background-color: rgb(214, 16, 16);
+  color: white;
+}
+
+#aviso #botao-confirmar:hover {
+  background-color: rgb(255, 0, 0);
+  color: white;
+}
+
+#aviso #botao-cancelar {
+  background-color: rgb(0, 126, 0);
+  color: white;
+}
+
+#aviso #botao-cancelar:hover {
+  background-color: rgb(3, 158, 3);
+  color: white;
+}
+
+#painel-hack {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  z-index: 999;
+  animation: editor 500ms linear;
+  border-radius: 10px;
+}
+
+#editor-hack {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#hack-vidas,
+#hack-tempo,
+#hack-moedas,
+#hack-pontos {
+  padding: 5px;
+  text-align: center;
+  margin: 5px;
+}
+
+#hack-pontos {
+  margin-bottom: 15px;
+}
+
+#hack-confirmar {
+  padding: 8px 15px;
+  margin-top: 15px;
+  cursor: url(/imagens/mario-cursor-link.cur), auto;
+}
+
+#selecionar {
+  display: flex;
+}
+
+#jogador2 {
+  margin-left: 15px;
+}
+
+p:nth-of-type(1) {
+  padding-left: 10px;
+}
+
+p:nth-of-type(2) {
+  padding-left: 10px;
+}
+
+#hack-fechar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: url(/imagens/mario-cursor-link.cur), auto;
+  padding: 8px;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
+.invencivel {
+  animation: invencivel 500ms infinite linear;
+}
+
+.pulo {
+  animation: pulo 600ms ease;
+}
+
+#resetar {
+  position: absolute;
+  background: linear-gradient(100deg, #fdc32a, #00c4f7);
+  color: black;
+  padding: 10px 20px;
+  left: 50px;
+  top: -100px;
+  cursor: url(/imagens/mario-cursor-link.cur), auto;
+  border-radius: 5px;
+  z-index: 9999;
+}
+
+#resetar:hover {
+  background: linear-gradient(#fdc32a, #00c4f7);
+}
+
+#editar {
+  position: absolute;
+  background: linear-gradient(100deg, #fdc32a, #00c4f7);
+  color: black;
+  padding: 10px 20px;
+  right: 50px;
+  top: -100px;
+  cursor: url(/imagens/mario-cursor-link.cur), auto;
+  border-radius: 5px;
+  z-index: 9999;
+}
+
+#editar:hover {
+  background: linear-gradient(#fdc32a, #00c4f7);
+}
+
+#game {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-image: url(/imagens/GAME.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: black;
+  top: 0;
+  left: -50%;
+  z-index: 999;
+}
+
+#over{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-image: url(/imagens/OVER.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: black;
+  top: 0;
+  right: -50%;
+  z-index: 999;
+}
+
+#game-over {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#missao-completa {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+}
+
+#missao-completa img:nth-of-type(1) {
+  position: absolute;
+  top: 150px;
+  left: 350px;
+}
+
+#missao-completa img:nth-of-type(2) {
+  position: absolute;
+  top: 300px;
+  left: 400px;
+}
+
+#bonus-final {
+  width: 100px;
+  height: auto;
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  top: 308px;
+  left: 810px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+#ceu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/imagens/bg.png);
+  background-position: top left;
+  background-repeat: repeat;
+  background-size: auto 150%;
+}
+
+#cenario {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/imagens/scenery.png);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: auto 200%;
+}
+
+#menu {
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  top: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 99;
+}
+
+#vidas {
+  position: absolute;
+  width: auto;
+  height: auto;
+  color: white;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  top: 52px;
+  left: 310px;
+  font-size: 20px;
+  font-weight: 500;
+  z-index: 99;
+}
+
+#bonus {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  color: white;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  top: 35px;
+  left: 520px;
+  font-size: 35px;
+  font-weight: 500;
+  z-index: 99;
+}
+
+#tempo {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  color: #ffed73;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 48px;
+  left: 775px;
+  font-size: 25px;
+  font-weight: 500;
+  z-index: 99;
+}
+
+#moedas {
+  position: absolute;
+  width: 70px;
+  height: auto;
+  color: white;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  top: 30px;
+  left: 1030px;
+  font-size: 20px;
+  font-weight: 500;
+  z-index: 99;
+}
+
+#pontos {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  color: white;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  top: 55px;
+  left: 900px;
+  font-size: 20px;
+  font-weight: 500;
+  z-index: 99;
+}
+
+#mario {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: 142px;
+  left: 300px;
+  z-index: 1;
+}
+
+.inimigo {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-image: url(/imagens/kooparedl.gif);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: 142px;
+  right: -100px;
+  z-index: 1;
+}
+
+#poste1 {
+  position: absolute;
+  width: 60px;
+  height: 300px;
+  background-image: url(/imagens/stake1.png);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: 145px;
+  left: 10000px;
+}
+
+#ponto {
+  position: absolute;
+  width: 120px;
+  height: 28px;
+  background-image: url(/imagens/pointer.png);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: 145px;
+  animation: pontoFinal 3s infinite linear alternate;
+  left: 10000px;
+}
+
+#poste2 {
+  position: absolute;
+  width: 60px;
+  height: 300px;
+  background-image: url(/imagens/stake2.png);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: 145px;
+  z-index: 2;
+  left: 10000px;
+}
+
+.fruta-vermelha {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url(/imagens/berry-red.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: 210px;
+  left: 10000px;
+}
+
+#fruta-roxa {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url(/imagens/berry-purple.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: 190px;
+  left: 10000px;
+}
+
+.bloco {
+  position: absolute;
+  width: 70px;
+  height: 50px;
+  background-image: url(/imagens/QuestionBlock.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: 350px;
+  display: block;
+  left: 10000px;
+}
+
+.moeda-yoshi {
+  position: absolute;
+  width: 80px;
+  height: 50px;
+  background-image: url(/imagens/yoshicoin.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: 320px;
+  left: 10000px;
+}
+
+.moeda {
+  position: absolute;
+  width: 60px;
+  height: 40px;
+  background-image: url(/imagens/Coin.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: 325px;
+  left: 10000px;
+}
